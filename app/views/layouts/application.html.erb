@@ -11,8 +11,11 @@
   </head>
 
   <body>
-  <%= render "layouts/shared/navbar" %>>
-  <p class="notice"><%= notice %></p>
-    <%= yield %>
+  <%= render "layouts/shared/navbar" %>
+    <main class="p-12 container items-center justify-center">
+      <p class="notice"><%= notice %></p>
+      <%= yield %>
+    </main>
+      <%= render "layouts/shared/footer" %>
   </body>
 </html>

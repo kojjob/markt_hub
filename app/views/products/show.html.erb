@@ -1,10 +1,39 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @product %>
-
-<div>
-  <%= link_to "Edit this product", edit_product_path(@product) %> |
-  <%= link_to "Back to products", products_path %>
-
-  <%= button_to "Destroy this product", @product, method: :delete %>
+<div class="dark:bg-gray-800 py-20 items-center justify-center flex">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row -mx-4">
+      <div class="md:flex-1 px-4">
+        <div class= "h-[460px] rounded-lg dark:bg-gray-700 mb-4">
+          <% if @product.images.any? %>
+            <%= image_tag @product.images[0], class: "w-full h-full object-cover" %>
+          <% end%>
+        </div>
+        <%= link_to "Edit Product", edit_product_path(@product), class: "sm:my-8 px-2 py-2 rounded-md  font-semibold text-blue-400 hover:text-blue-600 hover:underline hover:transition duration-200" %>
+      </div>
+      <div class="md:flex-1 px-4">
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-2 sm:mb-4"><%=@product.name %></h2>
+        <div class="flex mb-4">
+          <div class="mr-4">
+            <span class="font-bold text-gray-700 dark:text-gray-300">Price:</span>
+            <span class="text-gray-600 dark:text-gray-300">£<%=@product.price %></span>
+          </div>
+          <div class="mr-4">
+            <span class="font-bold text-gray-700 dark:text-gray-300">Availability:</span>
+            <span class="text-green-600 font-semibold px-4 py-1 bg-green-200 rounded-lg dark:text-gray-300 text-xs">In Stock</span>
+          </div>
+        </div>
+        <div class="mr-4">
+          <span class="font-bold text-gray-700 dark:text-gray-300">Product Description:</span>
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-4"><%=@product.description %></p>
+        </div>
+        <div class="flex -mx-2 mb-4">
+          <div class="w-1/2 px-2">
+            <button class="w-full text-sm xs:text-xs bg-gray-900 dark:bg-gray-600 text-white py-1 px-2 rounded-full hover:bg-gray-800 dark:hover:bg-gray-700">Add to Cart</button>
+          </div>
+          <div class="w-1/2 px-2">
+            <button class="w-full text-sm xs:text-xs bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-1 px-2 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600">Add to Wishlist</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
 </div>
